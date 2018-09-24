@@ -1,0 +1,22 @@
+<!-- index for all listings created -->
+
+<h2>Listing Index</h2>
+
+<%= link_to 'New List', new_listing_path %>
+
+
+<table>
+	<tr>
+		<th>Title</th>
+		<th></th>
+	</tr>
+
+	<% @listing.each do |list| %>
+		<tr>
+			<td><%= list.product_title %></td>
+			<td><%= link_to '[show]', listing_path(list.id) %></td>
+			<td><%= link_to '[edit]', edit_listing_path(list.id) %></td>
+			<td><%= link_to '[delete]', listing_path(list.id), method: :delete, data: { confirm: 'Are you sure?'}  %></td>
+		</tr>
+	<%end%>
+</table>
