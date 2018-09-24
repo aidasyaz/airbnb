@@ -1,0 +1,38 @@
+<!-- page to show one of the list selected based on product id -->
+
+<h2><%= @listing.product_title %></h2>
+
+<p>
+	<strong>Location:</strong>
+	<%= @listing.location %>
+</p>
+
+<p>
+	<strong>Guests:</strong>
+	<%= @listing.guests_number %>
+</p>
+
+<p>
+	<strong>Room Type:</strong>
+	<%= @listing.room_type %>
+</p>
+
+<p>
+	<strong>Amenities:</strong>
+	<%= @listing.amenities %>
+</p>
+
+<p>
+	<strong>Availability:</strong>
+	<%= @listing.availability %>
+</p>
+
+<p>
+	<strong>Price per night:</strong>
+	<%= @listing.price_rates %>
+</p>
+
+<%= link_to '[edit]', edit_listing_path(@listing.id) %>
+<%= link_to 'Back', listings_path %>
+
+
