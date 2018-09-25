@@ -2,7 +2,6 @@ class ListingsController < ApplicationController
 
 	
 	def index
-
 		@listing = Listing.paginate(:page => params[:page], :per_page =>20)
 	end
 
@@ -11,10 +10,19 @@ class ListingsController < ApplicationController
 	end
 
 	def new
-		@listing = Listing.new
+		# authorization code for creating list
+
+		if current_user.customer?
+			flash[:notice] = "Sorry. You are not allowed to perform this action."
+				return redirect_to listings_path, notice: "Sorry. You do not have the permission to verify a property."
+		else
+			# if not customer then can create list
+			@listing = Listing.new
+		end
 	end
 
 	def create
+
 		@listing = Listing.new(listing_params)
 		@listing.user_id = current_user.id
 		if @listing.save
