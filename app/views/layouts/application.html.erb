@@ -16,7 +16,7 @@
 
     <!-- login using signup form (manual) -->
     <% if signed_in? -%>
-   
+      <%= link_to 'Profile', user_path(current_user) %>
       <%= button_to t(".sign_out"), sign_out_path, method: :delete %>
     <% else -%>
       <%= link_to t(".sign_in"), sign_in_path %>

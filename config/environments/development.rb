@@ -13,6 +13,7 @@ Rails.application.configure do
   config.consider_all_requests_local = true
 
   require 'carrierwave/orm/activerecord'
+  require 'mini_magick'
   # Enable/disable caching. By default caching is disabled.
   # Run rails dev:cache to toggle caching.
   if Rails.root.join('tmp', 'caching-dev.txt').exist?

@@ -2,6 +2,8 @@
 
 <h2><%= @listing.product_title %></h2>
 
+<%= image_tag @listing.image_url(:thumb).to_s %>
+
 <p>
 	<strong>Location:</strong>
 	<%= @listing.location %>
