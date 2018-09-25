@@ -1,6 +1,9 @@
 <!-- user profile -->
 
 <!-- current user logged in profile page -->
-<strong> <%= current_user.email %> Profile </strong>
+<strong> <%= current_user.first_name %>'s profile </strong> 
+<br>
+<%= link_to '[edit profile]', edit_user_path(current_user) %><br/>
 <!-- image avatar -->
-<%= image_tag %>
+<%= image_tag @user.avatar_url.to_s %>
+

@@ -19,6 +19,22 @@ class UsersController < Clearance::UsersController
 		@user = User.find(params[:id])
 	end
 
+	def edit
+		@user = User.find(params[:id])
+	end
+
+	def update
+		@user = User.find(params[:id])
+
+		if @user = user_from_params
+			flash[:success] = "You have successfully edited profile!"
+			render 'show'
+		else
+			flash[:error] = "Profile was not updated"
+			render 'edit'
+		end
+	end
+
 	private
 	def user_from_params
 		avatar = user_params.delete(:avatar)
