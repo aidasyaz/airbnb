@@ -1,20 +1,22 @@
-<div class="text-field">
-  <%= form.label :email %>
-  <%= form.text_field :email, type: 'email' %>
-</div>
 
-<div class="text-field">
-  <%= form.label :first_name %>
-  <%= form.text_field :first_name, type: 'string' %>
-</div>
 
-<div class="text-field">
-  <%= form.label :address %>
-  <%= form.text_field :address %>
-</div>
+	<!-- field to upload image file -->
+	<div class="text-field">
+		<%= f.label :avatar  %>
+		<%= f.file_field :avatar  %>
+	</div>
+	
+	<div class="text-field">
+	  <%= f.label :email %>
+	  <%= f.text_field :email, type: 'email' %>
+	</div>
 
-<div class="password-field">
-  <%= form.label :password %>
-  <%= form.password_field :password %>
-</div>
+	<div class="text-field">
+	  <%= f.label :first_name %>
+	  <%= f.text_field :first_name, type: 'string' %>
+	</div>
 
+	<div class="password-field">
+	  <%= f.label :password %>
+	  <%= f.password_field :password %>
+	</div>

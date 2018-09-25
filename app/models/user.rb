@@ -1,9 +1,13 @@
 class User < ApplicationRecord
   include Clearance::User
 
+  # can log many user
   has_many :authentications, dependent: :destroy
+  # user has many lists created
   has_many :listings
+  # user roles
   enum status: [:superadmin, :moderator, :customer]
+  # user has 1 avatar
   mount_uploader :avatar, AvatarUploader
 
 
