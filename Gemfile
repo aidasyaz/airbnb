@@ -52,6 +52,10 @@ gem "mini_magick"
 
 gem 'braintree'
 
+# for bootstrap gem
+gem 'bootstrap'
+gem 'jquery-rails'
+
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
 

@@ -38,10 +38,11 @@
 <strong>Total price:</strong>
 <%= @reservation.compute_total_price.to_i %>
 <br>
+<%= link_to "Make Payment", listing_reservation_payment_path(params[:listing_id], @reservation.id , params[:id]) %>
 <br>
 <%= link_to 'Back', listing_path(params[:id]) %>
 <%= link_to 'Main Lists', listings_path %>
-<!-- delete reservation -->
+<!-- delete reservation function-->
 
 
 	
