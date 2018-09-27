@@ -10,12 +10,15 @@ class ReservationsController < ApplicationController
 		@reservation = Reservation.new(reservation_params)
 		@reservation.user_id = current_user.id
 		@reservation.listing_id = params[:listing_id]
+		# date validations
+		# check_dates.valid? && check_dates_today.valid?
 		if @reservation.save
 			flash[:success] = "Successfully Booked"
 			redirect_to listing_reservation_path(params[:listing_id], @reservation.listing_id)
 		else
 			flash[:error] = "Property wasnt booked. Try again."
-			redirect_back(fallback_location: listing_path)
+			# flash[:error] = Reservation.errors.messages
+			redirect_back fallback_location: listing_path(params[:listing_id])
 		end
 	end
 
