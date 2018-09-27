@@ -31,14 +31,15 @@
 	<br>
 
 <!-- show days booked -->
-<strong>Days Booked:</strong>
-<%= @reservation.compute_total_days_booked.to_i %>
+<strong>Total night booked:</strong>
+<%= @reservation.compute_total_days_booked.to_i %> night
 <br>
 <!-- show total price based on number of days booked -->
 <strong>Total price:</strong>
 <%= @reservation.compute_total_price.to_i %>
 <br>
 <br>
+<%= link_to 'Back', listing_path(params[:id]) %>
 <%= link_to 'Main Lists', listings_path %>
 <!-- delete reservation -->
 
