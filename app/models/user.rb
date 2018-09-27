@@ -9,6 +9,8 @@ class User < ApplicationRecord
   enum status: [:superadmin, :moderator, :customer]
   # user has 1 avatar
   mount_uploader :avatar, AvatarUploader
+  # reservation(many)
+  has_many :reservations
 
 
  def self.create_with_auth_and_hash(authentication, auth_hash)

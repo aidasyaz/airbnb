@@ -1,0 +1,46 @@
+<h2>Reservation Success</h2>
+<p>here's a summary including the total price you'll need to pay
+</p>
+
+<h3>
+<%= @reservation.listing.product_title %>
+</h3>
+
+	<strong>Location:</strong>
+	<%= @reservation.listing.location %>
+	<br>
+	<strong>Guests:</strong>
+	<%= @reservation.listing.guests_number %>
+	<br>
+	<strong>Room Type:</strong>
+	<%= @reservation.listing.room_type %>
+	<br>
+	<strong>Amenities:</strong>
+	<%= @reservation.listing.amenities %>
+	<br>
+	<strong>Availability:</strong>
+	<%= @reservation.listing.availability %>
+	<br>
+	<strong>Price per night:</strong>
+	<%= @reservation.listing.price_rates %>
+	<br>
+	<strong>Reserved from</strong>
+	<%= @reservation.start_date %>
+	<strong>Until</strong>
+	<%= @reservation.end_date%>
+	<br>
+
+<!-- show days booked -->
+<strong>Days Booked:</strong>
+<%= @reservation.compute_total_days_booked.to_i %>
+<br>
+<!-- show total price based on number of days booked -->
+<strong>Total price:</strong>
+<%= @reservation.compute_total_price.to_i %>
+<br>
+<br>
+<%= link_to 'Main Lists', listings_path %>
+<!-- delete reservation -->
+
+
+	

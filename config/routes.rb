@@ -14,8 +14,10 @@ Rails.application.routes.draw do
 
 
  resources :users
- resources :listings
  
+ resources :listings do
+    resources :reservations, only: [:new, :show, :create,:destroy]
+ end
 
 # clearance routing
   get "/sign_in" => "clearance/sessions#new", as: "sign_in"
