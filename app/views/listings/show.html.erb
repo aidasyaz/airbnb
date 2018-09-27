@@ -1,8 +1,10 @@
 <!-- page to show one of the list selected based on product id -->
 
-<h2><%= @listing.product_title %></h2>
+<br>
+<%= link_to '[edit]', edit_listing_path(@listing.id) %>
+<%= link_to '[Back]', listings_path %>
 
-<%= image_tag @listing.image_url(:thumb).to_s %>
+<h2><%= @listing.product_title %></h2>
 
 <p>
 	<strong>Location:</strong>
@@ -33,8 +35,10 @@
 	<strong>Price per night:</strong>
 	<%= @listing.price_rates %>
 </p>
+	
+	
+<!-- booking form on listing show page -->
+<%= render "reservations/booking_form" %>
 
-<%= link_to '[edit]', edit_listing_path(@listing.id) %>
-<%= link_to 'Back', listings_path %>
 
 
