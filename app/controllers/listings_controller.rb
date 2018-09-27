@@ -5,11 +5,6 @@ class ListingsController < ApplicationController
 		@listing = Listing.paginate(:page => params[:page], :per_page =>20)
 	end
 
-	def show
-		@listing = Listing.find(params[:id])
-		@reservation = Reservation.new
-	end
-
 	def new
 		# authorization code for creating list
 
@@ -26,13 +21,19 @@ class ListingsController < ApplicationController
 
 		@listing = Listing.new(listing_params)
 		@listing.user_id = current_user.id
-		if @listing.save
-			flash[:success] = "You have successfully created a new list!"
-			redirect_to listings_path
-		else
-			flash[:error] = "list was not saved!"
-			render 'new'
-		end
+		
+			if @listing.save
+				flash[:success] = "You have successfully created a new list!"
+				redirect_to listings_path
+			else 
+				flash[:error] = "list was not saved!"
+				render 'new'
+			end
+	end
+
+	def show
+		@listing = Listing.find(params[:id])
+		@reservation = Reservation.new
 	end
 
 	def edit
