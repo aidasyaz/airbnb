@@ -74,5 +74,7 @@ config.action_mailer.smtp_settings = {
   authentication:       'plain',
   enable_starttls_auto: true }
 
+  # use sidekiq as queue adapter
+  config.active_job.queue_adapter = :sidekiq
 
 end
