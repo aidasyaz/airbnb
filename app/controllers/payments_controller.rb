@@ -22,7 +22,8 @@ class PaymentsController < ApplicationController
      )
 
     if result.success?
-      ReservationsMailer.reservation_email(@reservation).deliver_now
+      # ReservationsMailer.reservation_email(@reservation).deliver_now
+      ReservationJob.perform_later(@reservation)
       redirect_to :root, :flash => { :success => "Transaction successful!" }
     else
       redirect_to :root, :flash => { :error => "Transaction failed. Please try again." }
