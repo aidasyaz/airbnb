@@ -2,6 +2,7 @@ class Reservation < ApplicationRecord
 	belongs_to :user
 	belongs_to :listing
 
+	# validates :reservations, presence: true, numericality: { only_integer: true, :greater_than_or_equal_to 1 }
 	validates :start_date, presence: true
 	validates :end_date, presence: true
 

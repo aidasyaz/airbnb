@@ -22,6 +22,8 @@ class ReservationsController < ApplicationController
 		end
 	end
 
+	
+
 	# def edit
 	# end
 
