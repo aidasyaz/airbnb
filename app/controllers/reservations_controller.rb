@@ -14,7 +14,7 @@ class ReservationsController < ApplicationController
 		# check_dates.valid? && check_dates_today.valid?
 		if @reservation.save
 			flash[:success] = "Successfully Booked"
-			redirect_to listing_reservation_path(params[:listing_id], @reservation.listing_id)
+			redirect_to listing_reservation_path(params[:listing_id], @reservation.id)
 		else
 			flash[:error] = "Property wasnt booked. Try again."
 			# flash[:error] = Reservation.errors.messages

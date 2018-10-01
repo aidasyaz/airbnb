@@ -2,7 +2,7 @@ class ListingsController < ApplicationController
 
 	
 	def index
-		@listing = Listing.paginate(:page => params[:page], :per_page =>20)
+		@listing = Listing.paginate(:page => params[:page], :per_page => 10)
 	end
 
 	def new
@@ -10,7 +10,7 @@ class ListingsController < ApplicationController
 
 		if current_user.customer?
 			flash[:notice] = "Sorry. You are not allowed to perform this action."
-				return redirect_to listings_path, notice: "Sorry. You do not have the permission to verify a property."
+				return redirect_to listings_path, flash[:notice] = "Sorry. You do not have the permission to verify a property."
 		else
 			# if not customer then can create list
 			@listing = Listing.new
@@ -59,9 +59,21 @@ class ListingsController < ApplicationController
 		redirect_to listings_path
 	end
 
+	# def search
+	# 	@listing = Listing.all
+	# 	@listing = @listing.location(params[:location]) if params[:location].present?
+	# end
+
 	private
 	def listing_params
 		params.require(:listing).permit(:product_title, :location, :guests_number, :room_type, :amenities, :availability, :price_rates)
 	end
+
+	# private
+	# def filtering_params(params)
+	# 	params.slice(:location)
+	# end
+
+
 
 end

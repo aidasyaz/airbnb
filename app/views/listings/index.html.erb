@@ -1,23 +1,36 @@
 <!-- index for all listings created -->
 
-<h2>Listing Index</h2>
+<div class= "container-fluid" >
+	<header>
+		<h2>Listing Index</h2>
+	</header>
 
-<%= link_to 'New List', new_listing_path %>
-<%= will_paginate @listing %>
+	<body>
+		<%= link_to '[New List]', new_listing_path %>
+		
+		<div class="pagination">
+			<%= will_paginate @listing %>
+		</div>
 
-<table>
-	<tr>
-		<th>Title</th>
-		<th></th>
-	</tr>
+		<div class="container-fluid">
+			<div class="jumbotron">
+				<table>
+					<tr>
+						<th>Title</th>
+						<th></th>
+					</tr>
 
-	<% @listing.each do |list| %>
-		<tr>
-			<td><%= list.product_title %></td>
-			<td><%= list.image %></td>
-			<td><%= link_to '[show]', listing_path(list.id) %></td>
-			<td><%= link_to '[edit]', edit_listing_path(list.id) %></td>
-			<td><%= link_to '[delete]', listing_path(list.id), method: :delete, data: { confirm: 'Are you sure?'}  %></td>
-		</tr>
-	<%end%>
-</table>
+					<% @listing.each do |list| %>
+						<tr>
+							<td><%= list.product_title %></td>
+							<td><%= list.image %></td>
+							<td><%= link_to '[show]', listing_path(list.id) %></td>
+							<td><%= link_to '[edit]', edit_listing_path(list.id) %></td>
+							<td><%= link_to '[delete]', listing_path(list.id), method: :delete, data: { confirm: 'Are you sure?'}  %></td>
+						</tr>
+					<%end%>
+				</table>
+			</div>
+		</div>
+	</body>
+</div>
