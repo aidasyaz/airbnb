@@ -1,42 +1,43 @@
+<div class="container-fluid">
+	<%= form_with model: @listing do |form|%>
+	<p>
+		<%= form.label :product_title %><br>
+		<%= form.text_field :product_title %>
+	</p>
 
-<%= form_with model: @listing do |form|%>
-<p>
-	<%= form.label :product_title %><br>
-	<%= form.text_field :product_title %>
-</p>
+	<p>
+		<%= form.label :price_rates %><br>
+		<%= form.text_area :price_rates %>
+	</p>
 
-<p>
-	<%= form.label :price_rates %><br>
-	<%= form.text_area :price_rates %>
-</p>
+	<p>
+		<%= form.label :location %><br>
+		<%= form.text_area :location %>
+	</p>
 
-<p>
-	<%= form.label :location %><br>
-	<%= form.text_area :location %>
-</p>
+	<p>
+		<%= form.label :guests_number %><br>
+		<%= form.text_area :guests_number %>
+	</p>
 
-<p>
-	<%= form.label :guests_number %><br>
-	<%= form.text_area :guests_number %>
-</p>
+	<p>
+		<%= form.label :room_type %><br>
+		<%= form.text_area :room_type %>
+	</p>
 
-<p>
-	<%= form.label :room_type %><br>
-	<%= form.text_area :room_type %>
-</p>
+	<p>
+		<%= form.label :amenities %><br>
+		<%= form.text_area :amenities %>
+	</p>
 
-<p>
-	<%= form.label :amenities %><br>
-	<%= form.text_area :amenities %>
-</p>
+	<p>
+		<%= form.label :availability %><br>
+		<%= form.text_area :availability %>
+	</p>
 
-<p>
-	<%= form.label :availability %><br>
-	<%= form.text_area :availability %>
-</p>
+	<p>
+		<%= form.submit %>
+	</p>
 
-<p>
-	<%= form.submit %>
-</p>
-
-<%end%>
+	<%end%>
+</div>
